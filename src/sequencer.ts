@@ -12,9 +12,6 @@ const pause = (seq) => {
 };
 
 const play = (seq) => {
-  if (seq.playing) {
-    return pause(seq);
-  }
   seq.playing = true;
 };
 

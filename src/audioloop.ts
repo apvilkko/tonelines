@@ -10,7 +10,7 @@ const getNextNoteTime = (tempo, noteLength, time) => {
 };
 
 const playNote = (context, lineIndex, block, when) => {
-  console.log("playNote", lineIndex, block);
+  //console.log("playNote", lineIndex, block);
   const instance = context.instances[lineIndex];
   if (!instance) {
     return;
@@ -20,6 +20,7 @@ const playNote = (context, lineIndex, block, when) => {
 
 const scheduleNote = (context, when) => {
   const currentNote = context.sequencer.currentNote;
+  //console.log("scheduleNote", currentNote);
   if (currentNote % 4 === 0) {
     for (let i = 0; i < context.lines.length; ++i) {
       const line = context.lines[i];

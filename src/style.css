@@ -123,6 +123,10 @@ table {
   border-spacing: 0;
 }
 
+body {
+  font-size: 22px;
+}
+
 html,
 body,
 #app {
@@ -130,8 +134,24 @@ body,
   height: 100%;
 }
 
+#canvas {
+  padding-top: 0.5rem;
+}
+
 #app {
   display: flex;
   justify-content: center;
   align-items: center;
+  flex-direction: column;
+}
+
+#controls {
+  padding-bottom: 0.5rem;
+}
+
+button {
+  padding: 0.5rem 2rem;
+  font-size: inherit;
+  font-family: monospace;
+  border: 2px solid black;
 }
