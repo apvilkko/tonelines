@@ -23,6 +23,9 @@ const scheduleNote = (context, when) => {
   //console.log("scheduleNote", currentNote);
   if (currentNote % 4 === 0) {
     for (let i = 0; i < context.lines.length; ++i) {
+      if (context.muted[i]) {
+        continue;
+      }
       const line = context.lines[i];
       const lineLen = line.length;
       const currentLineIndex = (currentNote / 4) % lineLen;
@@ -36,31 +39,6 @@ const scheduleNote = (context, when) => {
       }
     }
   }
-
-  /*const event = scene.generators[i].next(currentNote).value;
-    let hasChildren = Array.isArray(event);
-    // console.log(hasChildren, event, i);
-    (hasChildren ? event : [event]).forEach((e) => {
-      if (e && (e.note || e.action)) {
-        const parent = context.scene.instances[i];
-        hasChildren =
-          hasChildren &&
-          parent.children &&
-          e.instrument &&
-          parent.children[e.instrument];
-        const instance = hasChildren ? parent.children[e.instrument] : parent;
-        // console.log(instance, parent.children, e.instrument);
-        if (instance) {
-          if (e.action === "OFF") {
-            if (instance.noteOff) {
-              instance.noteOff(e, when);
-            }
-          } else if (instance.noteOn) {
-            instance.noteOn(e, when);
-          }
-        }
-      }
-    }); */
 };
 
 const tick = (context) => {
